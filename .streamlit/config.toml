@@ -4,6 +4,7 @@ enableCORS = false
 enableXsrfProtection = false
 port = 8501
 address = "0.0.0.0"
+gatherUsageStats = false
 
 [global]
 developmentMode = false
