@@ -1,0 +1,10 @@
+[server]
+enableCORS = false
+enableXsrfProtection = false
+
+[connection.postgres]
+host = "db.[seu-projeto].supabase.co"
+port = 5432  # Ou 6543 pooler
+dbname = "postgres"
+username = "postgres.[seu-projeto]"
+password = "[sua-senha]"
