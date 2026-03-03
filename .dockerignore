@@ -1,0 +1,2 @@
+.streamlit  # Evita copy local interferir
+.git
