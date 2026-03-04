@@ -29,11 +29,11 @@ def load_data():
     df_net = pd.read_sql(
         """
         SELECT
-            age,
-            subscription_type AS plan,
-            watch_hours,
-            last_login_days AS days_inactive,
-            churned AS churn
+            "age",
+            "subscription_type" AS plan,
+            "watch_hours",
+            "last_login_days" AS days_inactive,
+            "churned" AS churn
         FROM public.netflix_churn
         LIMIT 5000
         """,
