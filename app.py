@@ -30,9 +30,9 @@ def load_data():
         """
         SELECT
             age,
-            subscriptiontype AS plan,
-            watchhours,
-            lastlogindays AS days_inactive,
+            subscription_type AS plan,
+            watch_hours,
+            last_login_days AS days_inactive,
             churned AS churn
         FROM netflix_churn
         LIMIT 5000
@@ -46,7 +46,7 @@ def load_data():
         SELECT
             Age AS age,
             NumOfProducts AS num_products,
-            Balance / 10000 AS watchhours,
+            Balance / 10000 AS watch_hours,
             30 AS days_inactive,
             Exited AS churn
         FROM bank_churn
@@ -89,7 +89,7 @@ col2.metric("Churn Rate", f"{df['churn'].mean():.1%}")
 # =========================
 
 if st.button("Treinar XGBoost"):
-    features = ["age", "watchhours", "days_inactive"]
+    features = ["age", "watch_hours", "days_inactive"]
     X = df[features]
     y = df["churn"].astype(int)
 
