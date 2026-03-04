@@ -34,7 +34,7 @@ def load_data():
             watch_hours,
             last_login_days AS days_inactive,
             churned AS churn
-        FROM netflix_churn
+        FROM public.netflix_churn
         LIMIT 5000
         """,
         engine,
@@ -44,19 +44,19 @@ def load_data():
     df_bank = pd.read_sql(
         """
         SELECT
-            Age AS age,
-            NumOfProducts AS num_products,
-            Balance / 10000 AS watch_hours,
+            "Age" AS age,
+            "NumOfProducts" AS num_products,
+            "Balance" / 10000 AS watch_hours,
             30 AS days_inactive,
-            Exited AS churn
-        FROM bank_churn
+            "Exited" AS churn
+        FROM public.bank_churn
         LIMIT 5000
         """,
         engine,
     )
 
     # Normalizar tipos numéricos (tratando strings vazias e valores sujos)
-    numeric_cols = ["age", "watchhours", "days_inactive", "churn"]
+    numeric_cols = ["age", "watch_hours", "days_inactive", "churn"]
     for col in numeric_cols:
         for df_ in (df_net, df_bank):
             if col in df_.columns:
