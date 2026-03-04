@@ -11,13 +11,14 @@ from sklearn.model_selection import train_test_split
 # Config DB (Supabase / Postgres)
 # =========================
 
+DB_PROJ = os.getenv("DB_PROJ")
 DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT", "5432")
 DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
 DB_PASS = os.getenv("DB_PASS")
 
-DB_URL = f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+DB_URL = f"postgresql://postgres.{DB_PROJ}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
 
 @st.cache_data
